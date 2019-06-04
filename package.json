@@ -1,0 +1,13 @@
+{
+	"name": "SimpleCRUD",
+	"description": "Simple CRUD implementation of NodeJS",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fjbriones/SimpleCRUD"
+	},
+	"dependencies": {
+		"ejs": "^2.6.1",
+		"express": "^4.17.1",
+		"mysql": "^2.17.1"
+	}
+}
