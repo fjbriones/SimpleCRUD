@@ -2,8 +2,8 @@ exports.list_items = function(req, res) {
 	var sql_com_list = "SELECT * FROM items";
 	db.query(sql_com_list, function(err, result, fields){
 		console.log(result);
+		res.render('pages/home');
 	})
-	res.render('pages/home')
 }
 
 exports.add_item = function(req, res) {
@@ -11,6 +11,7 @@ exports.add_item = function(req, res) {
 	db.query(sql_com_add, [req.body.name, req.body.qty, req.body.amount], function(err, result, fields) {
 		if(err) throw err;
 		console.log("1 record inserted into items");
+		res.redirect('/');
 	})
 }
 

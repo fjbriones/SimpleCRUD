@@ -6,4 +6,7 @@ module.exports = function(app) {
 	app.get('/add', function(req, res) {
 		res.render('pages/add')
 	})
+
+	//Go back to home
+	app.post('/add', crud_commands.add_item);
 }
