@@ -40,8 +40,9 @@ exports.update_item = function(req, res) {
 
 exports.delete_item = function(req, res) {
 	var sql_com_delete = "DELETE FROM items WHERE id=?";
-	db.query(sql_com_delete, [req.body.id], function(err, result, fields) {
+	db.query(sql_com_delete, [req.params.id], function(err, result, fields) {
 		if(err) throw err;
 		console.log("1 record deleted in items");
+		res.redirect('/')
 	})
 }

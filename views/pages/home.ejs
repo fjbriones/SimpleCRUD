@@ -36,7 +36,7 @@
 								<td>
 									<div class="btn-grp">
 										<form action='/edit/<%= item.id %>' id="editForm<%= item.id %>" method="get"></form>
-										<form action='/delete/<%= item.id %>' id="deleteForm<%= item.id %>" method="get"></form>
+										<form action='/delete/<%= item.id %>?_method=DELETE' id="deleteForm<%= item.id %>" method="post"></form>
 										<button type="submit" class="btn btn-warning" form="editForm<%= item.id %>">
 											<span class="glyphicon glyphicon-pencil"></span>
 										</button>

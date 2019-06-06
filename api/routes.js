@@ -15,4 +15,7 @@ module.exports = function(app) {
 
 	//Update item
 	app.put('/update/:id', crud_commands.update_item);
+
+	//Delete item
+	app.delete('/delete/:id', crud_commands.delete_item);
 }
