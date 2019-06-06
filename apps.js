@@ -7,9 +7,9 @@ var bodyParser = require('body-parser');
 var app = express();
 app.set('view engine', 'ejs');
 
-//Initialize listening to an port
-const port = 3000;
-app.listen(port);
+//Initialize encoding
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
 
 //Initialize connection to mysql database
 var mysql_con = mysql.createConnection({
@@ -30,3 +30,13 @@ mysql_con.connect(function(err) {
 		}
 	})
 })
+global.db = mysql_con;
+
+//Initialize routes
+var routes = require('./api/routes');
+routes(app);
+
+//Initialize listening to an port
+const port = 3000;
+app.listen(port);
+
