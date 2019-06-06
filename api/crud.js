@@ -22,7 +22,7 @@ exports.edit_item = function(req, res) {
 	var sql_com_edit = "SELECT * FROM items WHERE id=?";
 	db.query(sql_com_edit, [req.params.id], function(err, result, fields) {
 		if(err) throw err;
-		console.log(result);
+		// console.log(result);
 		res.render('pages/edit', {
 			item: result[0]
 		})

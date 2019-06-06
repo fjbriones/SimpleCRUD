@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 //Initialize encoding
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 //Initialize connection to mysql database
 var mysql_con = mysql.createConnection({
