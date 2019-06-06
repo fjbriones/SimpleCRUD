@@ -23,17 +23,18 @@ exports.edit_item = function(req, res) {
 	db.query(sql_com_edit, [req.params.id], function(err, result, fields) {
 		if(err) throw err;
 		console.log(result);
-		res.render('pages/update', {
-			item: result
+		res.render('pages/edit', {
+			item: result[0]
 		})
 	})
 }
 
 exports.update_item = function(req, res) {
 	var sql_com_update = "UPDATE items SET name=?, qty=?, amount=? WHERE id=?";
-	db.query(sql_com_update, [req.body.name, req.body.qty, req.body.amount, req.body.id], function(err, result, fields) {
+	db.query(sql_com_update, [req.body.name, req.body.qty, req.body.amount, req.params.id], function(err, result, fields) {
 		if(err) throw err;
 		console.log("1 record updated in items");
+		res.redirect('/');
 	})
 }
 

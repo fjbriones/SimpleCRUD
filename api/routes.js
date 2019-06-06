@@ -10,8 +10,9 @@ module.exports = function(app) {
 	//Go back to home after adding new item
 	app.post('/add', crud_commands.add_item);
 
-	//Render update.ejs
-	app.get('/update/:id', function(req, res) {
-		res.send(req.params.id)
-	})
+	//Render edit.ejs
+	app.get('/edit/:id', crud_commands.edit_item);
+
+	//Update item
+	app.put('/update/:id', crud_commands.update_item);
 }

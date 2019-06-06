@@ -2,6 +2,7 @@
 var express = require('express');
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override')
 
 //Initialize express engine server
 var app = express();
@@ -10,6 +11,7 @@ app.set('view engine', 'ejs');
 //Initialize encoding
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
+app.use(methodOverride('_method'))
 
 //Initialize connection to mysql database
 var mysql_con = mysql.createConnection({

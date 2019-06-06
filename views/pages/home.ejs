@@ -35,9 +35,9 @@
 								<td><%= item.amount %></td>
 								<td>
 									<div class="btn-grp">
-										<form action='/update/<%= item.id %>' id="updateForm<%= item.id %>" method="get"></form>
+										<form action='/edit/<%= item.id %>' id="editForm<%= item.id %>" method="get"></form>
 										<form action='/delete/<%= item.id %>' id="deleteForm<%= item.id %>" method="get"></form>
-										<button type="submit" class="btn btn-warning" form="updateForm<%= item.id %>">
+										<button type="submit" class="btn btn-warning" form="editForm<%= item.id %>">
 											<span class="glyphicon glyphicon-pencil"></span>
 										</button>
 										<button type="submit" class="btn btn-danger" form="deleteForm<%= item.id %>">
