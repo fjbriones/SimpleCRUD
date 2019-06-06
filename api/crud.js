@@ -1,8 +1,11 @@
 exports.list_items = function(req, res) {
 	var sql_com_list = "SELECT * FROM items";
 	db.query(sql_com_list, function(err, result, fields){
-		console.log(result);
-		res.render('pages/home');
+		if(err) throw err;
+		// console.log(result);
+		res.render('pages/home', {
+			items: result
+		});
 	})
 }
 
@@ -12,6 +15,17 @@ exports.add_item = function(req, res) {
 		if(err) throw err;
 		console.log("1 record inserted into items");
 		res.redirect('/');
+	})
+}
+
+exports.edit_item = function(req, res) {
+	var sql_com_edit = "SELECT * FROM items WHERE id=?";
+	db.query(sql_com_edit, [req.params.id], function(err, result, fields) {
+		if(err) throw err;
+		console.log(result);
+		res.render('pages/update', {
+			item: result
+		})
 	})
 }
 
